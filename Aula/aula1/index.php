@@ -1,8 +1,10 @@
 <?php
 
-    include 'Aluno.php';
-    include 'Professores.php';
-    include 'Cursos.php';
+    //include 'Aluno.php';
+    //include 'Professores.php';
+    //include 'Cursos.php';
+
+    include 'vendor/autoload.php';
 
     //aluno
     $a1 = new Aluno();
