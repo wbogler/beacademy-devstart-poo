@@ -4,14 +4,13 @@ declare (strict_types = 1);
 
 namespace App\controller;
 
-class IndexController{
+class IndexController extends AbstractController{
     public function indexAction(): void
     {
-        include dirname(__DIR__).'/view/index/Index.php';
-        echo "<h1>Dentro da action do controller</h1><br>";
+        parent::render('index/index');
     }
 
     public function loginAction(): void{
-        include \dirname(__DIR__).'/view/index/Login.php';
+        parent::render('index/Login');
     }
 }
