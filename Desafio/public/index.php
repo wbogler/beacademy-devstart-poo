@@ -4,7 +4,28 @@
 
 include '../vendor/autoload.php';
 
-use App\controller\Indexcontroller;
+
+//teste conexão banco de dados
+
+$database = 'db_store';
+$username = 'root';
+$password = '215408';
+
+$connection = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+
+$query = 'SELECT * FROM tb_category;';
+
+$preparacao = $connection->prepare($query);
+
+$preparacao->execute();
+
+var_dump($preparacao);
+
+while ($registro = $preparacao->fetch()){
+    var_dump($registro);
+}
+
+/*use App\controller\Indexcontroller;
 use App\controller\ProductController;
 use App\controller\ErrorController;
 
@@ -29,4 +50,4 @@ if (false === isset($routes[$url])){
 $controllerName = $routes[$url]['controller'];
 $methodName - $routes[$url]['method'];
 
-(new $controllerName())->$methodName();
+(new $controllerName())->$methodName();*/
