@@ -6,12 +6,12 @@ namespace App\connection;
 
 abstract class Connection
 {
-    public function getConnection():PDO
+    public static function getConnection(): \PDO
     {
         $database = 'db_store';
         $username = 'root';
         $password = '215408';
 
-        return new PDO('mysqk:host = localhost;dbname='.$database, $username,$password);
+        return new \PDO('mysql:host = localhost;dbname='.$database, $username,$password);
     }
 }

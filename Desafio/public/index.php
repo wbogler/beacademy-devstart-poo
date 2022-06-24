@@ -4,14 +4,12 @@
 
 include '../vendor/autoload.php';
 
+use App\controller\ErrorController;
 
-//teste conexão banco de dados
+$routes = include '../config/routes.php';
 
-$database = 'db_store';
-$username = 'root';
-$password = '215408';
+/*$connection = Connection::getConnection();
 
-$connection = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
 $query = 'SELECT * FROM tb_category;';
 
@@ -23,25 +21,9 @@ var_dump($preparacao);
 
 while ($registro = $preparacao->fetch()){
     var_dump($registro);
-}
-
-/*use App\controller\Indexcontroller;
-use App\controller\ProductController;
-use App\controller\ErrorController;
+}*/
 
 $url = explode('?', $_SERVER['REQUEST_URI'])[0];
-
-function createRoute(string $controllerName, string $methodName){
-    return [
-        'controller'=> $controllerName,
-        'method'=> $methodName,
-    ];
-}
-
-$routes = [
-    '/' => createRoute(Indexcontroller::class, 'indexAction'),
-    '/produtos' =>createRoute(ProductController::class, 'listAction'),
-];
 
 if (false === isset($routes[$url])){
     (new ErrorController())->notFountAction();
@@ -50,4 +32,4 @@ if (false === isset($routes[$url])){
 $controllerName = $routes[$url]['controller'];
 $methodName - $routes[$url]['method'];
 
-(new $controllerName())->$methodName();*/
+(new $controllerName())->$methodName();

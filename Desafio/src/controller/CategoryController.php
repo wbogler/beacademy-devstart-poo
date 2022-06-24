@@ -2,8 +2,24 @@
 
 declare (strict_types = 1);
 
-namespace App\controller;
+namespace App\Controller;
+use App\connection\Connection;
 
-class CategoryController{
-    
+class CategoryController extends AbstractController{
+    public function listAction() : void
+    {
+        $con = Connection::getConnection();
+
+        $result = $con->prepare('SELECT * FROM tb_category');
+
+        $result->execute();
+
+        $cat = $result->fetch(\PDO::FETCH_ASSOC);
+
+        echo $cat['id'];
+        echo $cat['name'];
+        echo $cat['description'];
+
+        parent::render('category/list');
+    }
 }
