@@ -22,4 +22,6 @@ CREATE TABLE tb_product(
     quantity int(5) not null,
     created_at datetime not null);
 
-
+insert into tb_product (name, description, photo, valor, category_id, quantity, created_at) values (
+    ('Teclado', 'Tecaldo gamer', 'https://img.terabyteshop.com.br/produto/g/teclado-mecanico-gamer-redragon-kumara-k552-switch-blue-rgb-abnt-2-preto_110427.jpg',200,1,50,'2022-05-10 09:30:34' )
+)
